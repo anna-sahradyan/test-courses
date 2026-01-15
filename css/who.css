@@ -1,0 +1,108 @@
+.who-course {
+    padding: 60px 15px;
+    background-color: #f9f9f9;
+}
+
+
+.who__inner {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.who-text-bg {
+    padding: 0 20px;
+    flex: 0 0 400px;
+    margin: 120px 0;
+    height: 100%;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 3px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #F8893A 0%, #D68C67 50%, #DA785B 100%);
+}
+
+.who_title {
+    padding-top: 30px;
+    font-family: 'BERNIERDISTRESSED', cursive;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    color: var(--terracotta);
+    font-weight: 600;
+}
+
+.who-text {
+    padding: 10px 0;
+    color: var(--black-400);
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    line-height: 56px;
+    font-weight: 600;
+}
+
+.who-text > span {
+    color: var(--title);
+    font-weight: 600;
+}
+
+.who-image {
+    flex: 0 0 500px;
+    min-height: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border: 3px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #F8893A 0%, #D68C67 50%, #DA785B 100%);
+
+}
+
+.who-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+.who-text-bg {
+    background-image: url('../images/d.png');
+    background-size: cover;
+    background-position: center;
+}
+
+
+.who-text-bg p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.who-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+
+@media (max-width: 960px) {
+    .who-course .container-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .who-image {
+        flex: 0 0 100%;
+
+    }
+    .who-text-bg {
+        flex: 0 0 100%;
+        margin:  0;
+        min-height: 230px;
+        text-align: center;
+    }
+
+}

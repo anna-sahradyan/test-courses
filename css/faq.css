@@ -1,0 +1,110 @@
+.faq {
+    margin-top: 30px;
+}
+
+.faq__main-title {
+    display: flex;
+    justify-content: center;
+}
+
+.faq_title {
+    font-family: 'BERNIERDISTRESSED', cursive;
+    font-size: clamp(1.5rem, 4vw + 1rem, 3rem);
+    color: var(--terracotta);
+    text-transform: uppercase;
+}
+
+.faq_block {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.faq-item {
+    width: 100%;
+    max-width: 600px;
+    border: 3px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #F8893A 0%, #D68C67 50%, #DA785B 100%);
+    transition: all 0.3s ease;
+}
+
+.faq-item.second-faq {
+    width: 100%;
+    max-width: 600px;
+    border: 3px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(90deg, #F8893A 0%, #D68C67 50%, #DA785B 100%);
+    transition: all 0.3s ease;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--header-card);
+    transition: color 0.3s ease;
+}
+.faq-question.active{
+    color: var(--terracotta);
+}
+.arrow {
+    transition: transform 0.3s;
+    font-size: 30px;
+}
+.faq-question.active .arrow {
+    transform: rotate(180deg);
+}
+.faq-answer {
+    display: none;
+    padding: 0 15px 15px 15px;
+    overflow: hidden;
+}
+
+.faq-question.active .arrow {
+    transform: rotate(180deg);
+}
+/* Адаптив для экранов меньше 800px */
+@media screen and (max-width: 800px) {
+    .faq-item, .faq-item.second-faq {
+        max-width: 95%;
+        min-height: auto;
+    }
+
+    .faq_title {
+        text-align: center;
+    }
+
+    .faq-question {
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+
+    .faq-answer {
+        padding: 0 15px 15px 15px;
+    }
+
+    .faq-answer p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .faq-question {
+        font-size: 15px;
+    }
+
+    .faq-item {
+        border-width: 2px;
+    }
+}

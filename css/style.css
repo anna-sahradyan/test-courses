@@ -1,0 +1,167 @@
+:root {
+    --white: #FFFFFF;
+    --grey-100: #FAFAFA;
+    --brown-90: #EBE5E0;
+    --grey-300: #F4F3F3;
+    --grey-400: #EDEDED;
+    --grey-700: #BEBBB5;
+    --blue-100: #EDFBFE;
+    --btn-color: #4C7391;
+    --terracotta: #D68C67;
+    --red-800: #DF3B37;
+    --header-card: #4F7290;
+    --title: #4F7393;
+    --orange-500: #FD8934;
+    --orange-100: #FFD6B6;
+    --orange-300: #FFA243;
+    --menu-mobile: #F2E8D7;
+    --orange-border: #FDD6B7;
+    --grey-600: #E1E4ED;
+    --black-400: #313130;
+    --black-600: #202328;
+    --brown-50: #F8F4F9;
+    --brown-300: #A78768;
+    --brown-600: #796356;
+    --brown-900: #4C3C33;
+    --blue-200: #92A5AF;
+    --red-600: #B3261E;
+    --dark-brown: #4C3C33;
+    --custom-beige: #F8F0EC;
+    --darkBlue: #353E5C;
+    --green-500: #21AB53;
+    --red-500: #FF2D46;
+    --header-height: 100px;
+
+    --shadow-01: 0 0.5px 2px 0 #19213D1A;
+    --shadow-02: 0 1px 4px 0 #19213D14;
+    --shadow-03: 0 0.5px 2px 0 #19213D1A;
+    --shadow-04: 0px 1px 4px 0px #4E9FFF33;
+}
+
+@font-face {
+    font-family: 'BERNIERDISTRESSED';
+    src: url('../fonts/BERNIERDISTRESSED-REGULAR.woff2') format('woff2'),
+    url('../fonts/BERNIERDISTRESSED-REGULAR.woff') format('woff'),
+    url('../fonts/BERNIERDISTRESSED-REGULAR.OTF') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    scroll-behavior: auto !important;
+}
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-family: 'PT Sans', sans-serif;
+    color: var(--black-400);
+    background-color: var(--grey-100);
+    line-height: 1.5;
+    min-height: 100dvh;
+    font-weight: 400;
+}
+
+
+h1, h2, h3, h4, h5, h6,p {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    line-height: 1.2;
+    font-family: 'PT Sans', sans-serif;
+    letter-spacing: 1px;
+}
+
+button,
+input,
+select,
+textarea {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+    font: inherit;
+    box-sizing: border-box;
+    appearance: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+
+.more-info {
+    background: #f2f2f2;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+.container-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+
+
+}
+
+.main {
+    flex: 1 0 auto;
+
+}
+
+
+.footer {
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.footer_inner {
+    margin: 60px 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    font-size: 16px;
+
+}
+
+
+

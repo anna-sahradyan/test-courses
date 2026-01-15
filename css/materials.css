@@ -1,0 +1,232 @@
+
+.materials {
+    position: relative;
+    width: 100%;
+
+}
+
+.materials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+    padding-bottom: 50px;
+}
+
+.materials_title {
+    display: flex;
+    justify-content: center;
+    font-family: 'BERNIERDISTRESSED', cursive;
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: var(--terracotta);
+    font-weight: 600;
+    padding-bottom: 30px;
+}
+
+.material-card {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.material-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.material-card span {
+    font-weight: 600;
+    display: block;
+}
+
+.material-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.material-btn:hover {
+    transform: scale(1.05);
+}
+
+/* DROPDOWN */
+.material-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: top;
+    z-index: 100;
+    width: 340px;
+    max-width: 90vw;
+    background: white;
+    border: 2px solid #4E9FFF;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    color: var(--black-400);
+    font-weight: 600;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+    pointer-events: none;
+}
+
+/* Активное состояние */
+.material-card.active .material-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scaleY(1);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0s;
+    pointer-events: auto;
+}
+
+/* Сетки внутри списка */
+.dropdown-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+@media (max-width: 1240px) {
+    .container-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .material-card:first-child .material-dropdown {
+        left: 0;
+        transform: translateX(0) scaleY(0);
+    }
+
+    .material-card.active:first-child .material-dropdown {
+        transform: translateX(0) scaleY(1);
+    }
+
+    .material-card:last-child .material-dropdown {
+        left: auto;
+        right: 0;
+        transform: translateX(0) scaleY(0);
+    }
+
+    .material-card.active:last-child .material-dropdown {
+        transform: translateX(0) scaleY(1);
+    }
+
+    .material-dropdown {
+        width: 300px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 745px) {
+    .materials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .material-dropdown {
+        width: 300px;
+        max-width: 90vw;
+    }
+
+    .material-card:nth-child(odd) .material-dropdown {
+        left: 0;
+        transform: scaleY(0);
+        transform-origin: top left;
+    }
+
+    .material-card.active:nth-child(odd) .material-dropdown {
+        transform: scaleY(1);
+    }
+
+    .material-card:nth-child(even) .material-dropdown {
+        left: auto;
+        right: 0;
+        transform: scaleY(0);
+        transform-origin: top right;
+    }
+
+    .material-card.active:nth-child(even) .material-dropdown {
+        transform: scaleY(1);
+    }
+}
+
+@media (max-width: 450px) {
+    .materials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .material-dropdown {
+        width: 100%;
+        min-width: 280px;
+        left: 0 !important;
+        right: 0 !important;
+        transform: scaleY(0) !important;
+        transform-origin: top center;
+    }
+
+    .material-dropdown.single-dropdown {
+        width: 260px;
+        min-width: auto;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) scaleY(0) !important;
+    }
+
+    .material-card.active .material-dropdown.single-dropdown {
+        transform: translateX(-50%) scaleY(1) !important;
+    }
+
+    .material-card.active .material-dropdown:not(.single-dropdown) {
+        transform: scaleY(1) !important;
+    }
+
+    .dropdown-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Список */
+
+.dropdown-grid li {
+    font-size: 14px;
+    padding: 4px 0 4px 20px;
+    text-align: left;
+    position: relative;
+}
+
+.dropdown-grid li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--terracotta);
+    border-radius: 50%;
+}
+
+.dropdown-title-btn {
+    display: inline-block;
+    width: 100%;
+    max-width: 150px;
+    padding: 8px;
+    text-align: center;
+    background-color: #f0f7ff;
+    color: #003366;
+    font-weight: 700;
+    border-radius: 50px;
+    border: 2px solid #003366;
+    margin-bottom: 12px;
+}
+
+.material-dropdown.single-dropdown {
+    width: 260px;
+    text-align: center;
+}
