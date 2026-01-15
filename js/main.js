@@ -79,3 +79,17 @@ $(document).ready(function() {
         answer.slideToggle(300);
     });
 });
+/**/
+$(document).ready(function() {
+    $('.hero__btn-btn').on('click', function() {
+        const target = '#who-course';
+        if ($(target).length) {
+            const headerHeight = $('.header').outerHeight();
+            const targetOffset = $(target).offset().top - headerHeight;
+
+            $('html, body').animate({
+                scrollTop: targetOffset
+            }, 1000);
+        }
+    });
+});
