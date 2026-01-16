@@ -1,95 +1,107 @@
-$(document).ready(function() {
-    $('a[href^="#"]').on('click', function(event) {
+$(document).ready(function () {
+
+    /* =====================
+       Smooth scroll + close mobile menu
+    ===================== */
+    $('a[href^="#"]').on('click', function (event) {
         if (this.hash !== "") {
             event.preventDefault();
 
-            var hash = this.hash;
-            var target = $(hash);
+            const hash = this.hash;
+            const target = $(hash);
 
             if (target.length) {
-                var headerHeight = $('.header').outerHeight();
-
-                var targetOffset = target.offset().top - headerHeight;
+                const headerHeight = $('.header').outerHeight();
+                let targetOffset = target.offset().top - headerHeight;
 
                 if (hash === '#footer') {
                     targetOffset = $(document).height() - $(window).height();
                 }
+
                 if (hash === '#header') {
                     targetOffset = 0;
                 }
 
                 $('html, body').stop().animate({
                     scrollTop: targetOffset
-                }, 1000, 'swing');
+                }, 1000, 'swing', function () {
+                    if ($('.mobile_menu').hasClass('show')) {
+                        $('.mobile_menu').collapse('hide');
+                    }
+                });
             }
         }
     });
-});
-/*materials section*/
 
-$(document).ready(function() {
-    $('.material-btn').on('click', function(e) {
+    /* =====================
+       Materials section
+    ===================== */
+    $('.material-btn').on('click', function (e) {
         e.stopPropagation();
         const $card = $(this).closest('.material-card');
 
         $('.material-card').not($card).removeClass('active');
         $card.toggleClass('active');
     });
-    $(document).on('click', function() {
+
+    $(document).on('click', function () {
         $('.material-card').removeClass('active');
     });
 
-    $('.material-dropdown').on('click', function(e) {
+    $('.material-dropdown').on('click', function (e) {
         e.stopPropagation();
     });
-});
 
-/*tariff*/
-$(document).ready(function () {
+    /* =====================
+       Tariff currency
+    ===================== */
     const RATE = 70;
 
     $('.tariff__currency-btn').on('click', function () {
-        const $clickedButton = $(this);
-        const $parentCard = $clickedButton.closest('.tariff-card');
-        const selectedCurr = $clickedButton.data('curr');
-        $parentCard.find('.tariff__currency-btn').removeClass('active');
-        $clickedButton.addClass('active');
-        $parentCard.find('.old-price, .new-price').each(function () {
-            const $priceSpan = $(this);
-            const basePrice = parseFloat($priceSpan.attr('data-base-price'));
+        const $btn = $(this);
+        const $card = $btn.closest('.tariff-card');
+        const curr = $btn.data('curr');
 
-            if (selectedCurr === 'usd') {
-                const usdValue = Math.round(basePrice / RATE);
-                $priceSpan.text('$' + usdValue.toLocaleString('ru-RU'));
+        $card.find('.tariff__currency-btn').removeClass('active');
+        $btn.addClass('active');
+
+        $card.find('.old-price, .new-price').each(function () {
+            const basePrice = parseFloat($(this).data('base-price'));
+
+            if (curr === 'usd') {
+                $(this).text('$' + Math.round(basePrice / RATE).toLocaleString('ru-RU'));
             } else {
-                $priceSpan.text(basePrice.toLocaleString('ru-RU') + ' ₽');
+                $(this).text(basePrice.toLocaleString('ru-RU') + ' ₽');
             }
         });
     });
-});
-/*FAQ*/
-$(document).ready(function() {
-    $('.faq-question').on('click', function() {
-        const answer = $(this).next('.faq-answer');
-        $('.faq-answer').not(answer).slideUp(300);
+
+    /* =====================
+       FAQ
+    ===================== */
+    $('.faq-question').on('click', function () {
+        const $answer = $(this).next('.faq-answer');
+
+        $('.faq-answer').not($answer).slideUp(300);
         $('.faq-question').not(this).removeClass('active');
 
         $(this).toggleClass('active');
-
-        answer.slideToggle(300);
+        $answer.slideToggle(300);
     });
-});
-/**/
-$(document).ready(function() {
-    $('.hero__btn-btn').on('click', function() {
-        const target = '#who-course';
-        if ($(target).length) {
-            const headerHeight = $('.header').outerHeight();
-            const targetOffset = $(target).offset().top - headerHeight;
+
+    /* =====================
+       Hero button scroll
+    ===================== */
+    $('.hero__btn-btn').on('click', function () {
+        const target = $('#who-course');
+
+        if (target.length) {
+            const offset = target.offset().top - $('.header').outerHeight();
 
             $('html, body').animate({
-                scrollTop: targetOffset
+                scrollTop: offset
             }, 1000);
         }
     });
+
 });
