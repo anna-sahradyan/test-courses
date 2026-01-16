@@ -32,7 +32,5 @@
 - [Ссылка на деплой на Netlify](https://courageous-swan-d8ca65.netlify.app/)
 - [Ссылка на репозиторий на GitHub](https://github.com/anna-sahradyan/test-courses)
 
-## Скриншоты
 
-(Добавьте сюда изображения вашего сайта, если необходимо.)
 
